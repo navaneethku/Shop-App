@@ -73,11 +73,17 @@ class LandingPageState extends State<LandingPage> {
                               TextField(
                                 controller: _location,
                                 decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Enter Location'
-                                ),
+                                    border: OutlineInputBorder(),
+                                    labelText: 'Enter Location'),
                               ),
-                              ElevatedButton(onPressed: () {}, child: Text("Go to Main Page")),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => MyHomePage(
+                                                location: _location.text)));
+                                  },
+                                  child: Text("Go to Main Page")),
                             ],
                           ),
                         ),
@@ -85,34 +91,32 @@ class LandingPageState extends State<LandingPage> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MyHomePage(
-                                    title: '',
-                                  )));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 241, 100, 52),
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                          child: Text(
-                            'Welcome',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //             builder: (context) => MyHomePage()));
+                  //   },
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  //     child: Container(
+                  //       padding: EdgeInsets.all(20),
+                  //       decoration: BoxDecoration(
+                  //           color: Color.fromARGB(255, 241, 100, 52),
+                  //           borderRadius: BorderRadius.circular(12)),
+                  //       child: Center(
+                  //         child: Text(
+                  //           'Welcome',
+                  //           style: TextStyle(
+                  //               color: Colors.white,
+                  //               fontWeight: FontWeight.bold,
+                  //               fontSize: 18),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
