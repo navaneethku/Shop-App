@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:q_express/cart.dart';
 import 'package:q_express/main.dart';
+import 'package:q_express/stores.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -80,7 +81,7 @@ class LandingPageState extends State<LandingPage> {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) => MyHomePage(
+                                            builder: (context) => Stores(
                                                 location: _location.text)));
                                   },
                                   child: Text("Go to Main Page")),

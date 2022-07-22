@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:q_express/checkout_screen.dart';
 import 'dish_object.dart';
 
 class Cart extends StatefulWidget {
@@ -19,7 +20,24 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart'),
+        title: Center(child: Text('Cart')),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.shopping_cart_checkout),
+            tooltip: 'Comment Icon',
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CheckoutScreen()));
+            },
+          ), //IconButton
+        ], //<Widget
+        // leading: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: GestureDetector(
+        //       onTap: () => Navigator.push(context,
+        //           MaterialPageRoute(builder: (context) => CheckoutScreen())),
+        //       child: (Icon(Icons.shopping_cart_checkout))),
+        // ),
       ),
       body: ListView.builder(
           itemCount: _cart.length,
